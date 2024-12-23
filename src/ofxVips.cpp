@@ -3,6 +3,7 @@
 using namespace std;
 using namespace vips;
 
+
 bool ofxVips::init() {
   if (VIPS_INIT("") != 0) return false;
 

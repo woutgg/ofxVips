@@ -12,38 +12,38 @@ BUILD_TYPE=release  # release or debug (or others, see meson docs)
 # export CFLAGS="-DVIPS_DEBUG"
 
 
+# -Dexif=enabled \
 # -Djpeg=enabled \
 # -Dspng=enabled \
 # -Dtiff=enabled \
 BUILD_OPTIONS=" \
-	--buildtype=$BUILD_TYPE \
-	--default-library=static -Dexamples=false \
-	-Dcfitsio=disabled \
-	-Dcgif=disabled \
-	-Dexif=disabled \
-	-Dfftw=disabled \
-	-Dfontconfig=disabled \
-	-Dgsf=disabled \
-	-Dheif=disabled \
-	-Dimagequant=disabled \
-	-Djpeg-xl=disabled \
-	-Dlcms=disabled \
-	-Dmagick=disabled \
-	-Dmatio=disabled \
-	-Dnifti=disabled \
-	-Dopenexr=disabled \
-	-Dopenjpeg=disabled \
-	-Dopenslide=disabled \
-	-Dorc=disabled \
-	-Dpangocairo=disabled \
-	-Dpdfium=disabled \
-	-Dpng=disabled \
-	-Dpoppler=disabled \
-	-Dquantizr=disabled \
-	-Drsvg=disabled \
-	-Dwebp=disabled \
-	-Dzlib=disabled \
-	"
+  --buildtype=$BUILD_TYPE \
+  --default-library=static -Dexamples=false \
+  -Dcfitsio=disabled \
+  -Dcgif=disabled \
+  -Dfftw=disabled \
+  -Dfontconfig=disabled \
+  -Dgsf=disabled \
+  -Dheif=disabled \
+  -Dimagequant=disabled \
+  -Djpeg-xl=disabled \
+  -Dlcms=disabled \
+  -Dmagick=disabled \
+  -Dmatio=disabled \
+  -Dnifti=disabled \
+  -Dopenexr=disabled \
+  -Dopenjpeg=disabled \
+  -Dopenslide=disabled \
+  -Dorc=disabled \
+  -Dpangocairo=disabled \
+  -Dpdfium=disabled \
+  -Dpng=disabled \
+  -Dpoppler=disabled \
+  -Dquantizr=disabled \
+  -Drsvg=disabled \
+  -Dwebp=disabled \
+  -Dzlib=disabled \
+  "
 
 cd "$VIPS_DIR" || exit 2
 
@@ -55,8 +55,8 @@ echo "***** Running meson *****"
 meson setup "$BUILD_DIR" --prefix="$(pwd)/$OUTPUT_DIR" $BUILD_OPTIONS
 
 if [ $? -ne 0 ]; then
-	echo "$0: meson failed to run successfully"
-	exit 1
+  echo "$0: meson failed to run successfully"
+  exit 1
 fi
 
 cd "$BUILD_DIR" || exit 2

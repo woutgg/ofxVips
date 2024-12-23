@@ -65,14 +65,14 @@ common:
 
 
 linux64:
-	ADDON_PKG_CONFIG_LIBRARIES = expat libjpeg spng
+	ADDON_PKG_CONFIG_LIBRARIES = expat libexif libjpeg spng
 	ADDON_LDFLAGS = -ltiff
 	ADDON_LIBS =
 	ADDON_LIBS += libs/lib/linux64/libvips-cpp.a
 	ADDON_LIBS += libs/lib/linux64/libvips.a
 
 linux:
-	ADDON_PKG_CONFIG_LIBRARIES = expat libjpeg spng
+	ADDON_PKG_CONFIG_LIBRARIES = expat libexif libjpeg spng
 	ADDON_LDFLAGS = -ltiff
 	ADDON_LIBS =
 	ADDON_LIBS += libs/lib/linux64/libvips-cpp.a
