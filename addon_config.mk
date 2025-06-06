@@ -93,6 +93,7 @@ vs:
 	ADDON_SOURCES_EXCLUDE += libs/vips-cplusplus/include/
 	# Note: these paths end up in C/C++ -> General -> 'Additional Include Directories'.
 	ADDON_INCLUDES =
+	ADDON_INCLUDES += src
 	ADDON_INCLUDES += libs/include
 	ADDON_INCLUDES += libs/include/glib-2.0
 	ADDON_INCLUDES += libs/lib/win64/glib-2.0/include
@@ -101,12 +102,7 @@ vs:
 	ADDON_LIBS += libs/lib/win64/libglib-2.0.lib
 	ADDON_LIBS += libs/lib/win64/libgobject-2.0.lib
 	ADDON_LIBS += libs/lib/win64/libvips.lib
-	# At least required are: libvips-42.dll
 	ADDON_DLLS_TO_COPY =
-	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libvips-42.dll
-	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/fmod.dll
-	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/fmodL.dll
-	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/FreeImage.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libaom.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libarchive-13.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libbrotlicommon.dll
@@ -151,19 +147,19 @@ vs:
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libpangoft2-1.0-0.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libpixman-1-0.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libpng16-16.dll
-	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libpoppler-147.dll
+	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libpoppler-150.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libpoppler-glib-8.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/librsvg-2-2.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libsharpyuv-0.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libspng-0.dll
-	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libsqlite3.dll
+	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libsqlite3-0.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libtiff-6.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libunwind.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libvips-42.dll
-	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libvips-cpp-42.dll
+	# ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libvips-cpp-42.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libwebp-7.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libwebpdemux-2.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libwebpmux-3.dll
-	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libxml2-2.dll
+	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libxml2-16.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libz1.dll
 	ADDON_DLLS_TO_COPY += libs/lib/win64/dll/libznz.dll
