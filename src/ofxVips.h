@@ -31,6 +31,12 @@ public:
 
   static vips::VImage createVImageRef(ofImage& img);
 
+  // This helped: https://stackoverflow.com/questions/30930350/why-member-functions-cant-be-used-as-template-arguments
+  // TODO:
+  // - replace p contents with struct and adapt HandlerProxy to pass VImage* from there
+  //   -> but how would we obtain storage? allocate, then free in posteval?
+  //
+  // g_signal_connect(&img, "eval", GTK_SIGNAL_METHOD(ofxVips, vipsVImageEvalCallback, VipsImage*, VipsProgress*), this);
   template<class C, void(C::*HandlerFunc)(VipsImage*, VipsProgress*)>
   static void connectVImageProgressCb(vips::VImage* img, const C* instance) {
     SignalData<C> sd = { img, instance };
@@ -73,6 +79,12 @@ private:
   ofxVips() = delete;
   ofxVips(ofxVips& other) = delete;
   ofxVips(ofxVips&& other) = delete;
+
+  // Event handlers
+
+  // static void preeval_callback(VipsImage* image, VipsProgress* progress, void* pdata);
+  // static void eval_callback(VipsImage* image, VipsProgress* progress, void* pdata);
+  // static void posteval_callback(VipsImage* image, VipsProgress* progress, void* pdata);
 };
 
 #endif /* OFX_VIPS_H_SEEN */
