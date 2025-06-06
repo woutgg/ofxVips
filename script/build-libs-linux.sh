@@ -18,7 +18,7 @@ BUILD_TYPE=release  # release or debug (or others, see meson docs)
 # -Dtiff=enabled \
 BUILD_OPTIONS=" \
   --buildtype=$BUILD_TYPE \
-  --default-library=static -Dexamples=false \
+  --default-library=static -Dexamples=false -Ddeprecated=false \
   -Dcfitsio=disabled \
   -Dcgif=disabled \
   -Dfftw=disabled \

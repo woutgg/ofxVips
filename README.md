@@ -7,6 +7,11 @@ Feedback and additions are welcome.
 
 The libvips version used is 8.17.0.
 
+WARNING: linux and windows include files currently overlap and they are not
+entirely identical (mainly glib headers). The current files are for windows, so
+until this has been resolved, the linux build script might have to be run to
+obtain usable headers for linux.
+
 
 ## Updating the shipped library files
 
@@ -27,7 +32,7 @@ To build and copy the files, perform the following steps (more or less):
   enabled in the build script, but see https://github.com/libvips/libvips#optional-dependencies):
   * packages: libexif (previously also: fftw, orc, lcms, zlib, pangocairo, fontconfig (all installed already))
   * format libs: mozjpeg (broken on arch, but libjpeg-turbo also works), libspng, libtiff
-- run the build script
+- run the build script (perhaps remove previous build files first)
 
 ### Windows
 
@@ -48,12 +53,14 @@ ABI compatibility. See https://github.com/libvips/libvips/issues/508.
 
 ## TODO
 
-- (?) include library dependencies for linux and use thos, like in windows, or
-  build a completely static libvips if possible; currently, glib headers are
-  included for windows but not used on linux which is less than ideal; also if
-  external libraries will be required, document them here accurately
 - (FIXME) both the linux and windows setup scripts copy the include files, this
-  should not matter as long as the versions match
-- (windows) see if really all dll files are required
+  might not matter as long as the versions match but there are differences,
+  mainly in glib (just observe git changes after building / setting up the
+  libraries on a new platform)
+- currently, glib headers are included for windows but not used on linux which
+  is less than ideal -> split into platform-specific dir like libs?
+- (?) include library dependencies for linux and use those like in windows, or
+  build a completely static libvips if possible
+- also document the required external libraries here accurately
 - create an example (also to test if everything works correctly)
 - add macos support
