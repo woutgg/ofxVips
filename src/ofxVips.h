@@ -8,6 +8,7 @@
 
 #include <string>
 #include "ofxVips/libs/include/vips/vips8"
+#include "ofPixels.h"
 #include "ofImage.h"
 
 #define GTK_SIGNAL_METHOD(Class, Handler, Arg1, Arg2) \
