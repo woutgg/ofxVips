@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# TODO: download/check archive and unpack if required
-
-VIPS_DIR="vips-8.14.2"
+VIPS_VERSION="v8.17.0"
+VIPS_GIT_URL="https://github.com/libvips/libvips.git"
+VIPS_DIR="vips-$VIPS_VERSION"
 BUILD_DIR=build-dir
 OUTPUT_DIR=build-output
 TGT_BASE_DIR=../libs
@@ -23,7 +23,6 @@ BUILD_OPTIONS=" \
   -Dcgif=disabled \
   -Dfftw=disabled \
   -Dfontconfig=disabled \
-  -Dgsf=disabled \
   -Dheif=disabled \
   -Dimagequant=disabled \
   -Djpeg-xl=disabled \
@@ -45,7 +44,26 @@ BUILD_OPTIONS=" \
   -Dzlib=disabled \
   "
 
+if [ ! -f addon_config.mk ]; then
+  echo "$0: please run the build script from the addon root directory"
+  exit 1
+fi
+
+# First ensure we have the repo at the correct tag
+
+if [ ! -d "$VIPS_DIR" ]; then
+  echo "***** Cloning libvips repository for version $VIPS_VERSION *****"
+  git clone --depth 1 --branch "$VIPS_VERSION" "$VIPS_GIT_URL" "$VIPS_DIR"
+else
+  echo "***** Using existing libvips repository for version $VIPS_VERSION *****"
+fi
+
 cd "$VIPS_DIR" || exit 2
+
+if [ ! -z "$(git status --porcelain)" ]; then
+  echo "$0: a libvips repository for version $VIPS_VERSION has already been cloned, but has changes"
+  exit 2
+fi
 
 echo "***** Cleaning up *****"
 rm -r "$BUILD_DIR"

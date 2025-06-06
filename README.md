@@ -10,12 +10,24 @@ The libvips version used is 8.17.0.
 
 ## Updating the shipped library files
 
+https://www.libvips.org/install.html
+
 ### Linux
 
 On Linux, libvips is built from source as a static library. External libraries
 e.g. for file format support should be installed on system-wide. A minimal set
 of them is included in the built. For details, see `script/build-libs-linux.sh`.
-To build and copy the files, just run that script.
+
+To build and copy the files, perform the following steps (more or less):
+
+- Make sure build dependencies are installed: meson, 'build-essential'
+  (arch: ??? gcc, ld, etc?), pkg-config (arch: pkgconf), libglib2.0-dev
+  (arch: glib2), libexpat1-dev (arch: expat)
+- Install optional dependencies (currently only exif, jpeg, png and tiff are
+  enabled in the build script, but see https://github.com/libvips/libvips#optional-dependencies):
+  * packages: libexif (previously also: fftw, orc, lcms, zlib, pangocairo, fontconfig (all installed already))
+  * format libs: mozjpeg (broken on arch, but libjpeg-turbo also works), libspng, libtiff
+- run the build script
 
 ### Windows
 
@@ -38,7 +50,8 @@ ABI compatibility. See https://github.com/libvips/libvips/issues/508.
 
 - (?) include library dependencies for linux and use thos, like in windows, or
   build a completely static libvips if possible; currently, glib headers are
-  included for windows but not used on linux which is less than ideal
+  included for windows but not used on linux which is less than ideal; also if
+  external libraries will be required, document them here accurately
 - (FIXME) both the linux and windows setup scripts copy the include files, this
   should not matter as long as the versions match
 - (windows) see if really all dll files are required
