@@ -34,6 +34,6 @@ VImage ofxVips::createVImageRef(ofImage& img) {
   auto fmt = VIPS_FORMAT_UCHAR;  // ofImage is unsigned char, ofFloatImage is float, ofShortImage is unsigned short
 
   return VImage::new_from_memory(
-    pix.getData(), pix.getTotalBytes(), pix.getWidth(), pix.getHeight(), pix.getNumChannels(), fmt
+    pix.getData(), pix.getTotalBytes(), (int)pix.getWidth(), (int)pix.getHeight(), (int)pix.getNumChannels(), fmt
   );
 }
