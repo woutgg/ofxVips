@@ -78,7 +78,8 @@ linux:
 	ADDON_LIBS += libs/lib/linux64/libvips-cpp.a
 	ADDON_LIBS += libs/lib/linux64/libvips.a
 
-# Reference how/what to compile more or less as here: https://github.com/lovell/libvips-cpp-dll/blob/master/binding.gyp.
+# Reference how/what to compile more or less as here: https://github.com/lovell/libvips-cpp-dll/blob/master/binding.gyp,
+# and here: https://github.com/libvips/libvips/issues/508.
 vs:
 	# Note: exclude source files which should not be compiled or are compiled indirectly.
 	ADDON_SOURCES_EXCLUDE =
